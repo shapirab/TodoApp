@@ -35,7 +35,7 @@ namespace TodoApp.Data.Services.Implementations.Sql
             (bool? isCompleted, DateTime? createdAt, DateTime? completedAt, string? searchQuery,
                 string? sort, int pageNumber, int pageSize)
         {
-            IQueryable<TodoEntity> collection = db.Todos;
+            IQueryable<TodoEntity> collection = db.Todos as IQueryable<TodoEntity>;
 
             if (isCompleted != null)
             {
