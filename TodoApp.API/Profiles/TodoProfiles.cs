@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using TodoApp.Data.DataModels.Dto.TodoDtos;
+using TodoApp.Data.DataModels.Dto.UserDtos;
 using TodoApp.Data.DataModels.Entities;
 
 namespace TodoApp.API.Profiles
@@ -16,6 +17,12 @@ namespace TodoApp.API.Profiles
 
             CreateMap<TodoEntity, TodoToUpdateDto>();
             CreateMap<TodoToUpdateDto, TodoEntity>();
+
+            CreateMap<UserEntity, RegisterDto>();
+            CreateMap<RegisterDto, UserEntity>();
+
+            CreateMap<UserEntity, LoginDto>();
+            CreateMap<LoginDto, UserEntity>();
         }
     }
 }

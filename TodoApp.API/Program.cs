@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using TodoApp.API.Extensions;
+using TodoApp.Data.DataModels.Entities;
 using TodoApp.Data.DbContexts;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,9 @@ builder.Services.AddDbContext<AppDbContext>(
         builder.Configuration["ConnectionStrings:TodoAppDb"]));
 
 builder.Services.AddApplicationServices(builder.Configuration);
+
+builder.Services.AddIdentityApiEndpoints<UserEntity>()
+    .AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.AddCors();
 

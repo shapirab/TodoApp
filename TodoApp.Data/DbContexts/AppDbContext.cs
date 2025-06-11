@@ -9,10 +9,8 @@ using TodoApp.Data.DataModels.Entities;
 
 namespace TodoApp.Data.DbContexts
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbContext<UserEntity>(options)
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-
         public DbSet<TodoEntity> Todos { get; set; }
     }
 }
